@@ -34,7 +34,7 @@ export default class GetCurrentUserDetailsApplicationCustomizer
   @override
   public onInit(): Promise<void> {
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
-    console.log(`${LOG_SOURCE} Himani`);
+    console.log(`${LOG_SOURCE} Initialized`);
 
     const context: SP.ClientContext = new SP.ClientContext(this.context.pageContext.web.absoluteUrl);
     const web: SP.Web = context.get_web();
