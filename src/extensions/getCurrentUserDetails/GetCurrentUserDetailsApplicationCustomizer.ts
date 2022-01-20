@@ -38,21 +38,25 @@ export default class GetCurrentUserDetailsApplicationCustomizer
 
     const context: SP.ClientContext = new SP.ClientContext(this.context.pageContext.web.absoluteUrl);
     const web: SP.Web = context.get_web();
-    let currentUser: SP.User = web.get_currentUser();    
+    let currentUser: SP.User = web.get_currentUser();
 
     context.load(web);
     context.load(currentUser);
     context.executeQueryAsync((sender: any, args: SP.ClientRequestSucceededEventArgs) => {
       let wtitle: string = web.get_title();
-      console.log(`${LOG_SOURCE} ${wtitle}`);
-      console.log(`${LOG_SOURCE} ${currentUser.get_title()}`);
-      console.log(`${LOG_SOURCE} ${currentUser.get_loginName()}`);
-      console.log(`${LOG_SOURCE} ${currentUser.get_email()}`);
+      let sampleJSON = {
+        "User Name": currentUser.get_title(),
+        "User LogIn": currentUser.get_loginName(),
+        "User Email": currentUser.get_email()
+      };
+     
+     // console.log(JSON.stringify(userJSON));
+      console.log(sampleJSON);
       //Dialog.alert("dialog");
     },
-    (sender,args) => {  
-      console.log(args.get_message());  
-    });
+      (sender, args) => {
+        console.log(args.get_message());
+      });
 
     let message: string = this.properties.testMessage;
     if (!message) {
