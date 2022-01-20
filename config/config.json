@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "get-current-user-details-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/getCurrentUserDetails/GetCurrentUserDetailsApplicationCustomizer.js",
+          "manifest": "./src/extensions/getCurrentUserDetails/GetCurrentUserDetailsApplicationCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "sp-init": {
+      "path": "https://himanis.sharepoint.com/_layouts/15/init.js",
+      "globalName": "$_global_init"
+  },
+  "microsoft-ajax": {
+      "path": "https://himanis.sharepoint.com/_layouts/15/MicrosoftAjax.js",
+      "globalName": "Sys",
+      "globalDependencies": [ "sp-init" ]
+  },
+  "sp-runtime": {
+      "path": "https://himanis.sharepoint.com/_layouts/15/SP.Runtime.js",
+      "globalName": "SP",
+      "globalDependencies": [ "microsoft-ajax" ]
+  },
+  "sharepoint": {
+      "path": "https://himanis.sharepoint.com/_layouts/15/SP.js",
+      "globalName": "SP",
+      "globalDependencies": [ "sp-runtime" ]
+  }
+  },
+  "localizedResources": {
+    "GetCurrentUserDetailsApplicationCustomizerStrings": "lib/extensions/getCurrentUserDetails/loc/{locale}.js"
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="GetCurrentUserDetails"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="94a80728-2c52-4bde-a800-ce764c923619"
+        Properties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </ClientSideComponentInstance>
+</Elements>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://himanis.sharepoint.com/sites/ModernTeam/SitePages/Home.aspx",
+      "customActions": {
+        "94a80728-2c52-4bde-a800-ce764c923619": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "getCurrentUserDetails": {
+      "pageUrl": "https://himanis.sharepoint.com/sites/ModernTeam/SitePages/Home.aspx",
+      "customActions": {
+        "94a80728-2c52-4bde-a800-ce764c923619": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}
