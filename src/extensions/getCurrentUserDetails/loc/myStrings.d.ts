@@ -3,6 +3,16 @@ declare interface IGetCurrentUserDetailsApplicationCustomizerStrings {
 }
 
 declare module 'GetCurrentUserDetailsApplicationCustomizerStrings' {
-  const strings: IGetCurrentUserDetailsApplicationCustomizerStrings;
+  const strings: IGetCurrentUserDetailsApplicationCustomizerStrings;  
   export = strings;
 }
+
+declare global {
+  var himaniGlobalJSON:string = "potter";
+  interface  ContosoHimaniJSON {
+    "User Name": string,
+    "User LogIn": string,
+    "User Email": string
+  };
+}
+

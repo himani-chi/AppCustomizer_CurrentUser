@@ -17,6 +17,7 @@ require('sharepoint');
 
 const LOG_SOURCE: string = 'GetCurrentUserDetailsApplicationCustomizer';
 
+
 /**
  * If your command set uses the ClientSideComponentProperties JSON input,
  * it will be deserialized into the BaseExtension.properties object.
@@ -34,6 +35,8 @@ export default class GetCurrentUserDetailsApplicationCustomizer
   @override
   public onInit(): Promise<void> {
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
+    globalThis.himaniGlobal="hermione";
+    console.log(globalThis.himaniGlobal);
     console.log(`${LOG_SOURCE} Initialized`);
 
     const context: SP.ClientContext = new SP.ClientContext(this.context.pageContext.web.absoluteUrl);
@@ -49,10 +52,28 @@ export default class GetCurrentUserDetailsApplicationCustomizer
         "User LogIn": currentUser.get_loginName(),
         "User Email": currentUser.get_email()
       };
-     
-     // console.log(JSON.stringify(userJSON));
+       globalThis.contosoHimaniJson = 
+       {
+        "User Name": currentUser.get_title(),
+        "User LogIn": currentUser.get_loginName(),
+        "User Email": currentUser.get_email()
+      };
+
+      let flatstring: string = `{
+        "User Name": ${currentUser.get_title()},
+        "User LogIn": ${currentUser.get_loginName()},
+        "User Email": ${currentUser.get_email()}
+      }`;
+
+      // console.log(JSON.stringify(userJSON));
+      console.log("I am JSON object");
       console.log(sampleJSON);
-      //Dialog.alert("dialog");
+
+      console.log("I am global JSON Object");
+      console.log(globalThis.contosoHimaniJson);
+      
+      console.log("I am a flat string that looks like JSOn but isn't stringified.");
+      console.log(flatstring);
     },
       (sender, args) => {
         console.log(args.get_message());
