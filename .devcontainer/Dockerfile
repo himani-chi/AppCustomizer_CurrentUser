@@ -1,6 +1,8 @@
 FROM node:14.19.0
 
-RUN npm i -g gulp@4 yo @microsoft/generator-sharepoint@1.13.1
+RUN npm i -g gulp@4 && \
+    npm i -g yo && \
+    npm i -g @microsoft/generator-sharepoint@1.13.1
 
 VOLUME /usr/app/spfx
 WORKDIR /usr/app/spfx
